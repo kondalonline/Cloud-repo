@@ -5,6 +5,11 @@ terraform {
   required_version = ">= 0.12.26"
 }
 
+data "google_compute_instance" "appserver" {
+  name = "primary-application-server"
+  zone = "us-central1-a"
+}
+
 # website::tag::1:: The simplest possible Terraform module: it just outputs "Hello, World!"
 output "hello_world" {
   value = "Hello, World!"
